@@ -11,7 +11,9 @@ export default function FakeApiApp() {
   useEffect(() => {
     fetchPosts();
   }, []);
-
+//
+//
+//
   const fetchPosts = async () => {
     const response = await fetch(URL);
     const posts = await response.json();
