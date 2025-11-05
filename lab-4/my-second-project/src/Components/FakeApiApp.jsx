@@ -11,9 +11,8 @@ export default function FakeApiApp() {
   useEffect(() => {
     fetchPosts();
   }, []);
-//
-//
-//
+  
+  
   const fetchPosts = async () => {
     const response = await fetch(URL);
     const posts = await response.json();
@@ -26,7 +25,7 @@ export default function FakeApiApp() {
     setNewPost({ ...newPost, [name]: value });
   };
 
- //
+ 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (newPost.title.trim() === "" || newPost.body.trim() === "") return;
@@ -43,7 +42,7 @@ export default function FakeApiApp() {
 //
 
   return (
-    <div className="app">
+    <div className="app-container">
       {isLoading && <h1>Loading...</h1>}
       <h1>Fake API App</h1>
       <PostForm
