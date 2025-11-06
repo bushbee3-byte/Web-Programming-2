@@ -29,13 +29,13 @@ export default function FakeApiApp() {
 
  const handleSubmit = (e) => {
         e.preventDefault();
-    const newPostObj = {
+    const newPostItem = {
       id: Date.now(),
       title: newPost.title,
       body: newPost.body,
     };
 
-    setData([newPostObj, ...data]);
+    setData([newPostItem, ...data]);
     setNewPost({ title: "",
        body: "" });
   };
