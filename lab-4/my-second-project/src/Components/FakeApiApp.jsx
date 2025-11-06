@@ -3,7 +3,7 @@ import PostForm from "./PostForm";
 import PostsContainer from "./PostsContainer";
 
 export default function FakeApiApp() {
-  const URL = "https://jsonplaceholder.typicode.com/posts";
+  const URL = "  https://jsonplaceholder.typicode.com/posts";
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [newPost, setNewPost] = useState({ title: "", body: "" });
@@ -14,22 +14,21 @@ export default function FakeApiApp() {
   
   
   const fetchPosts = async () => {
-    const response = await fetch(URL);
+         const response = await fetch(URL);
     const posts = await response.json();
-    setData(posts.reverse());
+    setData(posts);
     setIsLoading(false);
   };
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setNewPost({ ...newPost, [name]: value });
-  };
+  setNewPost({
+    ...newPost, [e.target.name]: e.target.value,
+  });
+};
 
- 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (newPost.title.trim() === "" || newPost.body.trim() === "") return;
 
+ const handleSubmit = (e) => {
+        e.preventDefault();
     const newPostObj = {
       id: Date.now(),
       title: newPost.title,
@@ -37,20 +36,22 @@ export default function FakeApiApp() {
     };
 
     setData([newPostObj, ...data]);
-    setNewPost({ title: "", body: "" });
+    setNewPost({ title: "",
+       body: "" });
   };
-//
+
 
   return (
     <div className="app-container">
-      {isLoading && <h1>Loading...</h1>}
-      <h1>Fake API App</h1>
+     <h1>Fake API App</h1>
       <PostForm
         newPost={newPost}
         handleChange={handleChange}
         handleSubmit={handleSubmit}
       />
-      <PostsContainer posts={data} />
+      {isLoading && <h1>Loading...</h1>}
+      <PostsContainer 
+      posts={data} />
     </div>
   );
 }
