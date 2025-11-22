@@ -1,5 +1,6 @@
 export default function NavBar({ quantity }) {
   return (
+    // navigation bae
     <nav className="NavBar">
       <div className="NavDiv NavUser">
         <h3>Hello, username</h3>

@@ -15,6 +15,7 @@ export default function CartCard({
       {/*cart item info */}
       <div className="CartCardInfo">
         <img src={image} alt="" />
+        {/*  name and price of Product*/}
         <p>{productName}</p>
         <p>{price}</p>
 
@@ -29,10 +30,12 @@ export default function CartCard({
         {/* <h3>x {quantity}</h3> */}
       </div>
 
+      {/* Total price and remove button */}
       <div>
         <h3>
           Total: ${(parseFloat(price.replace("$", "")) * quantity).toFixed(2)}
         </h3>
+        {/* Remove this item completely from cart */}
         <button
           onClick={() => handleRemoveFromCart(id)}
           className="RemoveButton"

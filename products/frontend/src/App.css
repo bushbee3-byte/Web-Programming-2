@@ -151,4 +151,23 @@ img {
   background-color: green;
   width: 50%;
 }
-
+/* style for grocessoers app container */
+.GroceriesApp-Container {
+  display: grid;
+  grid-template-columns: 300px auto 300px;
+  gap: 0x;
+   }
+/* style for both left and right */
+.LeftColumn,
+.RightColumn {
+  
+  border-radius: 6x;
+  padding: 20px;
+  height: fit-content;
+}
+/* Middle  section layout */
+.MiddleColumn {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

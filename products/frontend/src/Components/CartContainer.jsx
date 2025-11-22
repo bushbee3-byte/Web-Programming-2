@@ -8,9 +8,11 @@ export default function CartContainer({
 }) {
   return (
     <div className="CartContainer">
+       {/* shows how many items are incart */}
       <h2>Cart items: {cartList.length}</h2>
       {cartList.length > 0 ? (
         <>
+         {/* shows all items */}
           {console.log(cartList)}
           {cartList.map((product) => (
             <CartCard
@@ -21,7 +23,9 @@ export default function CartContainer({
               handleRemoveQuantity={handleRemoveQuantity}
             />
           ))}
+           {/* checkout button */}
           <div className="CartListBtns">
+             {/* remove all   */}
             <button onClick={() => handleClearCart()} className="RemoveButton">
               Empty Cart
             </button>

@@ -16,9 +16,7 @@ export default function ProductCard({
 }) {
   return (
     <div className="ProductCard">
-
-      {/*  product info */}
-
+      {/* shows main info */}
       <h3>{productName}</h3>
       <img src={image} alt="" />
       <h4>{brand}</h4>
@@ -39,12 +37,14 @@ export default function ProductCard({
         id={id}
         mode="product"
       />
-       {/* price ofproduct */}
+      {/* shows price */}
       <h3>{price}</h3>
 
-      {/*  buttons */}
+      {/* buttonof  cart, editing and deleting */} 
       <button onClick={() => handleAddToCart(id)}>Add to Cart</button>
+      {/* Edit  product's info  */} 
       <button onClick={() => handleEdit(id)}>Edit</button>
+      {/* Delete   product fromlist  */} 
       <button onClick={() => handleDelete(id)}>Delete</button>
     </div>
   );

@@ -21,6 +21,8 @@ const [productQuantity, setProductQuantity] = useState([]); //product for each c
     price: "",
     image: "",
   });
+
+  
   const [postResponse, setPostResponse] = useState(""); // run message
   const [isEditing, setIsEditing] = useState(false); // editing
 
@@ -57,7 +59,7 @@ const [productQuantity, setProductQuantity] = useState([]); //product for each c
 
   
   // Handles fm submission
-  const handleOnSubmit = async () => {
+ const handleOnSubmit = async () => {
     try {
       if (isEditing) {
         await axios
@@ -92,6 +94,7 @@ const [productQuantity, setProductQuantity] = useState([]); //product for each c
     }
   };
 
+
  
   // Handling edit product
   const handleEdit = (product) => {
@@ -120,7 +123,7 @@ const [productQuantity, setProductQuantity] = useState([]); //product for each c
   };
 
 
-  ///
+  
   // quantity add and subtract handlers
   const handleAddQuantity = (productId, mode) => {
     if (mode === "cart") {
@@ -197,25 +200,25 @@ const [productQuantity, setProductQuantity] = useState([]); //product for each c
 
   
   // Render
-  return (
-    <div>
-      <NavBar quantity={cartList.length} />
+return (
+  <div>
+    <NavBar quantity={cartList.length} />
+  <div className="GroceriesApp-Container">
 
-      <h2>Groceries</h2>
+      {/* LEFT COLUMN */}
+      <div className="LeftColumn">
+        <ProductForms
+          isEditing={isEditing}
+          formData={formData}
+          handleOnChange={handleOnChange}
+          handleOnSubmit={handleOnSubmit}
+          register={register}
+          handleSubmit={handleSubmit}
+          errors={errors}
+        /> </div>
 
-      <ProductForms
-        isEditing={isEditing}
-        formData={formData}
-        handleOnChange={handleOnChange}
-        handleOnSubmit={handleOnSubmit}
-        register={register}
-        handleSubmit={handleSubmit}
-        errors={errors}
-      />
-
-      <p style={{ color: "green" }}>{postResponse}</p>
-
-      <div className="GroceriesApp-Container">
+      {/* MIDDLE COLUMN */}
+      <div className="MiddleColumn">
         <ProductsContainer
           products={products}
           productQuantity={productQuantity}
@@ -225,7 +228,10 @@ const [productQuantity, setProductQuantity] = useState([]); //product for each c
           handleEdit={handleEdit}
           handleDelete={handleDelete}
         />
+      </div>
 
+      {/* RIGHT COLUMN */}
+      <div className="RightColumn">
         <CartContainer
           cartList={cartList}
           handleRemoveFromCart={handleRemoveFromCart}
@@ -234,6 +240,8 @@ const [productQuantity, setProductQuantity] = useState([]); //product for each c
           handleClearCart={handleClearCart}
         />
       </div>
+
     </div>
-  );
+  </div>
+);
 }

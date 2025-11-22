@@ -66,7 +66,7 @@ server.post("/add-product", async (request, response) => {
 //  Delete a product
 server.delete("/products/:id", async (request, response) => {
   const { id } = request.params;
-   d
+  
  
   try {
     await Product.findByIdAndDelete(id);

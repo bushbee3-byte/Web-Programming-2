@@ -14,7 +14,7 @@ export default function ProductsContainer({
     
       {products.map((product) => (
         <ProductCard
-          key={product.id} // unique key
+          key={product.id} 
           {...product}
           handleAddQuantity={handleAddQuantity}
           handleRemoveQuantity={handleRemoveQuantity}

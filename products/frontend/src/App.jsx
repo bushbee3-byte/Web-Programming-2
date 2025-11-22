@@ -1,3 +1,4 @@
+// improt all the css and application
 import "./App.css";
 import GroceriesAppContainer from "./Components/GroceriesAppContainer";
 
